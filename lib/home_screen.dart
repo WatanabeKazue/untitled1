@@ -13,8 +13,13 @@ class _HomeScrState extends State<HomeScreen> {
         title: Text("ツッコミマシーン"),
         centerTitle: true,
       ),
-      body: Container(
+      body: Column(
+        children: <Widget>[
+     children: <widget>[
+       _soundButton(),
+       _soundBotton(),
 
+     ],
       ),
     );
   }
