@@ -9,6 +9,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScrState extends State<HomeScreen> {
+  String _textHeader = "あなたの名前を教えてください";
+  TextEditingController _textEditingController = TextEditingController();
+  widget _imageWidget = Container();
+
+
   // String _text01 = "おめでとうございます";
   // String _text02 = "合格です";
   // String _text03 = "よくできました";
