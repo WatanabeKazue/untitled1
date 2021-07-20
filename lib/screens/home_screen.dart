@@ -5,10 +5,10 @@ import 'package:soundpool/soundpool.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
-  _HomeScrState createState() => _HomeScrState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScrState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   String _textHeader = "あなたの名前を教えてください";
   TextEditingController _textEditingController = TextEditingController();
   widget _imageWidget = Container();
