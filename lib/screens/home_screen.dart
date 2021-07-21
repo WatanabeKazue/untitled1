@@ -33,8 +33,8 @@ class _HomeScreenState extends State<HomeScreen> {
   int number = 3;
 
   @override
-  void initState() async{
-    sup.initSounds();
+  void initState() {
+    _initSounds();
     print("initState終わったで～＝buildメソッド回ったで～");
     _soundIds.add(1);
     _soundIds.add(2);
@@ -44,27 +44,20 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _initSounds() async {
-    _soundpool = Soundpool();
 
-    _soundpool[0] = await loadSound("assets/sounds/sound1.mp3");
-
-    Future<void> loadSound(String soundPath) {
-
-    }
-
-    _soundIds[0] = await rootBundle.load("assets/sounds/sound1.mp3");
-    _soundIds[1] = await rootBundle.load("assets/sounds/sound2.mp3");
-    _soundIds[2] = await rootBundle.load("assets/sounds/sound3.mp3");
-    _soundIds[3] = await rootBundle.load("assets/sounds/sound4.mp3");
-    _soundIds[4] = await rootBundle.load("assets/sounds/sound5.mp3");
-    _soundIds[5] = await rootBundle.load("assets/sounds/sound6.mp3");
+    _soundIds[0] = await loadSound("assets/sounds/sound1.mp3");
+    _soundIds[1] = await loadSound("assets/sounds/sound2.mp3");
+    _soundIds[2] = await loadSound("assets/sounds/sound3.mp3");
+    _soundIds[3] = await loadSound("assets/sounds/sound4.mp3");
+    _soundIds[4] = await loadSound("assets/sounds/sound5.mp3");
+    _soundIds[5] = await loadSound("assets/sounds/sound6.mp3");
 
     print("initState終わったで～＝buildメソッド回ったで～");
   }
-    Future<int> loadSound(String soundPath){
-    return rootBundle.load(soundPath).then((value) => _soundpool.load(value));
-    }
 
+  Future<int> loadSound(String soundPath) {
+    return rootBundle.load(soundPath).then((value) => _soundpool.load(value));
+  }
 
 
   @override
@@ -140,12 +133,9 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-)
-  loadSound(String s) {}
-}
 
- void _playSound(int soundId) async{
+  _playSound(int soundId) async {
     await _soundpool.play(soundId);
- }
- }
+  }
+}
 //TODO 98[List]
