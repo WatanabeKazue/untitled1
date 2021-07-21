@@ -31,18 +31,19 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   List<int> _soundIds = [0, 0, 0, 0, 0, 0];
-  List<int> = List();
 
-  Soundpool _soundpool;
+
+  late Soundpool _soundpool;
   @override
-  void initState(){
+  void initState() {
     soundIds.add(1);
     soundIds.add(2);
 
 
-    _soundpool = Soundpool();
+    _soundpool = Soundpool.fromOptions(options:);
     super.initState();
   }
+  void _initSounds(){}
 
 
   Widget build(BuildContext context) {
@@ -111,4 +112,4 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-//TODO
+//TODO 98[List] 
