@@ -33,8 +33,9 @@ class _HomeScreenState extends State<HomeScreen> {
   int number = 3;
 
   @override
-  void initState() {
-    _initSounds();
+  void initState() async{
+    sup.initSounds();
+    print("initState終わったで～＝buildメソッド回ったで～");
     _soundIds.add(1);
     _soundIds.add(2);
 
@@ -47,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     _soundpool[0] = await loadSound("assets/sounds/sound1.mp3");
 
-    Future<void> loadSound(String soundPath){
+    Future<void> loadSound(String soundPath) {
 
     }
 
@@ -58,6 +59,8 @@ class _HomeScreenState extends State<HomeScreen> {
     _soundIds[4] = await rootBundle.load("assets/sounds/sound5.mp3");
     _soundIds[5] = await rootBundle.load("assets/sounds/sound6.mp3");
 
+    print("initState終わったで～＝buildメソッド回ったで～");
+  }
     Future<int> loadSound(String soundPath){
     return rootBundle.load(soundPath).then((value) => _soundpool.load(value));
     }
@@ -132,12 +135,17 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       padding: EdgeInsets.all(8.0),
       child: RaisedButton(
-        onPressed: null, //TODO 音を鳴らす
+        onPressed: () => _playSound(soundId), //TODO 音を鳴らす
         child: Text(displayText),
       ),
     );
   }
-
+)
   loadSound(String s) {}
 }
+
+ void _playSound(int soundId) async{
+    await _soundpool.play(soundId);
+ }
+ }
 //TODO 98[List]
