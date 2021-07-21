@@ -8,52 +8,56 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  String _textHeader = "あなたの名前を教えてください";
-  TextEditingController _textEditingController = TextEditingController();
-  widget _imageWidget = Container();
+//class _HomeScreenState extends State<HomeScreen> {
+//String _textHeader = "あなたの名前を教えてください";
+//TextEditingController _textEditingController = TextEditingController();
+//widget _imageWidget = Container();
 
 
-  // String _text01 = "おめでとうございます";
-  // String _text02 = "合格です";
-  // String _text03 = "よくできました";
-  // String _text04 = "残念でした";
-  // String _text05 = "不合格です";
-  // String _text06 = "頑張りましょう";
+// String _text01 = "おめでとうございます";
+// String _text02 = "合格です";
+// String _text03 = "よくできました";
+// String _text04 = "残念でした";
+// String _text05 = "不合格です";
+// String _text06 = "頑張りましょう";
 
-  List<String> _texts = [
-    "おめでとうございます",
-    "合格です",
-    "よくできました",
-    "残念でした",
-    "不合格です",
-    "頑張りましょう"
-  ];
+List<String> _texts = [
+  "おめでとうございます",
+  "合格です",
+  "よくできました",
+  "残念でした",
+  "不合格です",
+  "頑張りましょう"
+];
 
-  List<int> _soundIds = [0, 0, 0, 0, 0, 0];
-
-
-  late Soundpool _soundpool;
-  @override
-  void initState() {
-    soundIds.add(1);
-    soundIds.add(2);
+List<int> _soundIds = [0, 0, 0, 0, 0, 0];
 
 
-    _soundpool = Soundpool.fromOptions(options:);
-    super.initState();
-  }
-  void _initSounds(){}
+late Soundpool _soundpool;
+
+@override
+void initState() {
+  soundIds.add(1);
+  soundIds.add(2);
 
 
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("ツッコミマシーン"),
-        centerTitle: true,
-      ),
-      body: Center(
-        padding: EdgeInsets.all(8.0),
+  _soundpool = Soundpool.fromOptions();
+  super.initState();
+}
+
+void _initSounds() {}
+
+
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      title: Text("ツッコミマシーン"),
+      centerTitle: true,
+    ),
+    body: Center(
+
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           children: <Widget>[
             Expanded(
@@ -99,17 +103,17 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-    );
-  }
-
-  Widget _soundButton(String displayText, int soundId) {
-    return Container(
-      padding: EdgeInsets.all(8.0),
-      child: RaisedButton(
-        onPressed: null, //TODO 音を鳴らす
-        child: Text(displayText),
-      ),
-    );
-  }
+    ),
+  );
 }
+
+Widget _soundButton(String displayText, int soundId) {
+  return Container(
+    padding: EdgeInsets.all(8.0),
+    child: RaisedButton(
+      onPressed: null, //TODO 音を鳴らす
+      child: Text(displayText),
+    ),
+  );
+}}
 //TODO 98[List] 
